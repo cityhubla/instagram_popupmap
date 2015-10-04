@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Leaflet Instagram Popup</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta property="og:image" content="route.png" />
+	<link rel="stylesheet" href="lib/leaflet/leaflet.css" />
+	<link rel="stylesheet" href="dist/Leaflet.Instagram.css" />	
+	<link rel="stylesheet" href="css/map.css" />
+</head>
+<body>
+	<div id="map"></div>
+	<script src="lib/reqwest.min.js"></script>
+	<script src="lib/leaflet/leaflet.js"></script>
+	<script src="dist/Leaflet.Instagram.js"></script>	
+	<script>
+
+var map = L.map('map', {
+            center: [34.052234, -118.243685],
+            zoom: 13});
+        
+	L.tileLayer('http://{s}.tile.stamen.com/toner-lite/{z}/{x}/{y}.png').addTo(map);
+
+L.instagram('https://api.instagram.com/v1/tags/lariver/media/recent?count=200&access_token=2152602411.1677ed0.f856ba6dea044eb495b8e33cdb05ed5e').addTo(map);
+
+	</script>
+</body>
+</html>
